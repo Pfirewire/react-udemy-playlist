@@ -13,10 +13,38 @@ const songsSlice = createSlice({
     }
 });
 
-const store = configureStore({
-    reducer: {
-        songs: songsSlice.reducer
+const moviesSlice = createSlice({
+    name: 'movie',
+    initialState: [],
+    reducers: {
+        addMovie(state, action) {
+            state.push(action.payload);
+        },
+        removeMovie(state, action) {
+
+        }
     }
 });
 
-console.log(store);
+const store = configureStore({
+    reducer: {
+        songs: songsSlice.reducer,
+        movies: moviesSlice.reducer,
+    }
+});
+
+const startingState = store.getState();
+console.log(JSON.stringify(startingState));
+
+store.dispatch({
+    type: 'song/addSong',
+    payload: 'New Song!!!'
+});
+
+store.dispatch({
+    type: 'movie/addMovie',
+    payload: 'And a new Movie'
+});
+
+const finalState = store.getState();
+console.log(JSON.stringify(finalState));
