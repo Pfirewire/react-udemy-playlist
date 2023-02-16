@@ -33,12 +33,4 @@ const store = configureStore({
     }
 });
 
-const startingState = store.getState();
-console.log(JSON.stringify(startingState));
-
-store.dispatch(songsSlice.actions.addSong('New Song!!!'));
-
-store.dispatch(moviesSlice.actions.addMovie('new movie'));
-
-const finalState = store.getState();
-console.log(JSON.stringify(finalState));
+export { store };
