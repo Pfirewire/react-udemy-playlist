@@ -36,15 +36,9 @@ const store = configureStore({
 const startingState = store.getState();
 console.log(JSON.stringify(startingState));
 
-store.dispatch({
-    type: 'song/addSong',
-    payload: 'New Song!!!'
-});
+store.dispatch(songsSlice.actions.addSong('New Song!!!'));
 
-store.dispatch({
-    type: 'movie/addMovie',
-    payload: 'And a new Movie'
-});
+store.dispatch(moviesSlice.actions.addMovie('new movie'));
 
 const finalState = store.getState();
 console.log(JSON.stringify(finalState));
